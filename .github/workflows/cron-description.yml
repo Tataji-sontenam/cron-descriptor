@@ -1,4 +1,4 @@
-ame: Cron Description Generator
+name: Cron Description Generator
 
 on:
   workflow_dispatch:
