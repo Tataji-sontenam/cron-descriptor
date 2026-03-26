@@ -7,5 +7,7 @@ print("Cron Expression -> Description")
 print("--------------------------------")
 
 for cron in crons:
-    description = get_description(cron)
-    print(f"{cron} -> {description}")
+    try:
+        print(f"{cron} -> {get_description(cron)}")
+    except Exception:
+        print(f"{cron} -> Invalid cron expression")
