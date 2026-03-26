@@ -1,13 +1,17 @@
+import sys
 from cron_descriptor import get_description
 
-with open("crons.txt") as f:
-    crons = [line.strip() for line in f if line.strip()]
+cron_input = sys.argv[1]
 
-print("Cron Expression -> Description")
-print("--------------------------------")
+# Split by ;
+cron_list = [cron.strip() for cron in cron_input.split(";") if cron.strip()]
 
-for cron in crons:
+print("\nCron Expression -> Description")
+print("-----------------------------------")
+
+for cron in cron_list:
     try:
-        print(f"{cron} -> {get_description(cron)}")
-    except Exception:
+        description = get_description(cron)
+        print(f"{cron} -> {description}")
+    except Exception as e:
         print(f"{cron} -> Invalid cron expression")
