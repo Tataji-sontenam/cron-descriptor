@@ -1,10 +1,14 @@
-name: Generate Cron Descriptions
+ame: Cron Description Generator
 
 on:
   workflow_dispatch:
+    inputs:
+      cron_list:
+        description: "Enter cron expressions separated by ;"
+        required: true
 
 jobs:
-  cron-description:
+  generate-description:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +23,6 @@ jobs:
       - name: Install dependency
         run: pip install cron-descriptor
 
-      - name: Run cron description script
-        run: python cron_description.py
+      - name: Run Python script
+        run: python cron_description.py "${{ github.event.inputs.cron_list }}"
+2️⃣ Python
