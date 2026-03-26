@@ -25,4 +25,3 @@ jobs:
 
       - name: Run Python script
         run: python cron_description.py "${{ github.event.inputs.cron_list }}"
-2️⃣ Python
